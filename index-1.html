@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar Taberkane — Portfolio</title>
+<meta name="description" content="Omar Taberkane — Infographiste & opérateur de production, Alger. Signalétique, céramique, impression, vernissage UV.">
+<meta property="og:title" content="Omar Taberkane — Infographiste & Opérateur de Production">
+<meta property="og:description" content="Plus de 15 ans d'expérience entre design graphique, signalétique, céramique et production industrielle. Basé à Alger.">
+<meta property="og:image" content="hilal-2.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&family=Cairo:wght@400;600;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F0EDE3;
+    --paper-shadow:#DCD7C6;
+    --ink:#17181B;
+    --cyan:#00AEEF;
+    --magenta:#EC0868;
+    --yellow:#FFD400;
+    --line:#C9C5B4;
+    --card-bg:#fff;
+    --max:1040px;
+  }
+
+  html[data-theme="dark"]{
+    --paper:#15161A;
+    --paper-shadow:#1F2025;
+    --ink:#F0EDE3;
+    --line:#33343A;
+    --card-bg:#1C1D22;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    transition:background .25s ease, color .25s ease;
+  }
+  html[data-lang="ar"] body{ font-family:'IBM Plex Sans Arabic','IBM Plex Sans', sans-serif; }
+
+  .display{
+    font-family:'Anton', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.92;
+  }
+  html[data-lang="ar"] .display{
+    font-family:'Cairo', sans-serif;
+    font-weight:800;
+    letter-spacing:0;
+    text-transform:none;
+  }
+
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  html[data-lang="ar"] .mono{ font-family:'IBM Plex Sans Arabic', sans-serif; }
+
+  .reg-mark{ position:fixed; width:22px; height:22px; z-index:40; opacity:0.55; pointer-events:none; }
+  .reg-mark svg{width:100%; height:100%;}
+  .reg-tl{top:14px; left:14px;} .reg-tr{top:14px; right:14px;}
+  .reg-bl{bottom:14px; left:14px;} .reg-br{bottom:14px; right:14px;}
+  @media (max-width:640px){ .reg-mark{width:16px; height:16px;} }
+
+  header{
+    position:sticky; top:0; z-index:30;
+    background:rgba(240,237,227,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    transition:background .25s ease;
+  }
+  html[data-theme="dark"] header{ background:rgba(21,22,26,0.92); }
+  .header-inner{ max-width:var(--max); margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .brand-mark{ display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.08em; }
+  .brand-dot{width:8px; height:8px; border-radius:50%; background:var(--magenta);}
+  .header-controls{ display:flex; align-items:center; gap:10px; }
+  .icon-btn{ width:32px; height:32px; border-radius:50%; border:1.5px solid var(--ink); background:transparent; color:var(--ink); display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .lang-toggle{ display:flex; border:1.5px solid var(--ink); border-radius:999px; overflow:hidden; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.04em; }
+  .lang-toggle button{ border:none; background:transparent; color:var(--ink); padding:7px 14px; cursor:pointer; font:inherit; }
+  .lang-toggle button.active{ background:var(--ink); color:var(--paper); }
+  .social-links{ display:flex; gap:10px; }
+  .social-links a{ color:var(--ink); display:flex; opacity:0.75; transition:opacity .15s ease; }
+  .social-links a:hover{ opacity:1; color:var(--magenta); }
+
+  .colorbar{ display:flex; height:10px; width:100%; }
+  .colorbar span{ flex:1; }
+  .cb-paper{background:var(--paper-shadow);} .cb-c{background:var(--cyan);}
+  .cb-m{background:var(--magenta);} .cb-y{background:var(--yellow);} .cb-k{background:var(--ink);}
+
+  section{ max-width:var(--max); margin:0 auto; padding:64px 24px; position:relative;}
+  @media (max-width:640px){ section{ padding:44px 20px; } }
+
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--magenta); display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+  html[data-lang="ar"] .eyebrow{ font-family:'IBM Plex Sans Arabic'; letter-spacing:0; }
+  .eyebrow::before{ content:""; width:20px; height:1.5px; background:var(--magenta); }
+
+  .hero{ padding-top:88px; padding-bottom:56px; }
+  .hero h1{ font-size:clamp(48px, 11vw, 108px); color:var(--ink); }
+  .hero .role{ margin-top:18px; font-size:clamp(16px,3vw,20px); max-width:520px; color:var(--ink); opacity:.75; }
+  .hero .tag{ margin-top:6px; font-family:'IBM Plex Mono', monospace; font-size:13px; color:#6b6858; }
+  html[data-lang="ar"] .hero .tag{ font-family:'IBM Plex Sans Arabic'; }
+  .hero-actions{ margin-top:32px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{ font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.03em; padding:13px 22px; border-radius:2px; text-decoration:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; border:1.5px solid var(--ink); transition:transform .15s ease; }
+  html[data-lang="ar"] .btn{ font-family:'IBM Plex Sans Arabic'; }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-solid{ background:var(--ink); color:var(--paper); }
+  .btn-outline{ background:transparent; color:var(--ink); }
+  .btn-whatsapp{ background:#25D366; color:#fff; border-color:#25D366; }
+
+  .swatch-strip{ display:flex; gap:0; margin-top:52px; border:1px solid var(--line); }
+  .swatch{ flex:1; padding:14px 10px; border-inline-start:1px solid var(--line); text-align:center; }
+  .swatch:first-child{ border-inline-start:none; }
+  .swatch .n{ font-family:'Anton', sans-serif; font-size:22px; }
+  html[data-lang="ar"] .swatch .n{ font-family:'Cairo', sans-serif; font-weight:800;}
+  .swatch .l{ font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:#6b6858; margin-top:4px;}
+  html[data-lang="ar"] .swatch .l{ font-family:'IBM Plex Sans Arabic'; letter-spacing:0;}
+  @media (max-width:640px){ .swatch-strip{ flex-wrap:wrap; } .swatch{ flex:1 1 50%; border-bottom:1px solid var(--line);} }
+
+  .about-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start; }
+  @media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-text p{ font-size:16px; line-height:1.75; color:var(--ink); opacity:.85; margin-bottom:14px; }
+  .about-text p:last-child{ margin-bottom:0; }
+  .info-card{ border:1px solid var(--line); background:var(--card-bg); padding:22px; }
+  .info-card .row{ display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px dashed var(--line); font-size:13px;}
+  .info-card .row:last-child{ border-bottom:none; }
+  .info-card .row .k{ color:#6b6858; font-family:'IBM Plex Mono',monospace; }
+  html[data-lang="ar"] .info-card .row .k{ font-family:'IBM Plex Sans Arabic'; }
+  .info-card .row .v{ font-weight:600; text-align:right; }
+  html[data-lang="ar"] .info-card .row .v{ text-align:left; }
+
+  h2.section-title{ font-size:clamp(30px,5vw,44px); margin-bottom:28px; }
+
+  .chip-grid{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{ border:1.5px solid var(--ink); padding:10px 16px; font-size:13px; font-family:'IBM Plex Mono', monospace; position:relative; }
+  html[data-lang="ar"] .chip{ font-family:'IBM Plex Sans Arabic'; }
+  .chip::before{ content:"+ "; color:var(--magenta); }
+
+  .timeline{ border-inline-start:2px solid var(--ink); padding-inline-start:26px; display:flex; flex-direction:column; gap:34px; }
+  .t-item{ position:relative; }
+  .t-item::before{ content:""; position:absolute; inset-inline-start:-33px; top:4px; width:12px; height:12px; background:var(--yellow); border:2px solid var(--ink); border-radius:50%; }
+  .t-item .yr{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--magenta); letter-spacing:0.05em; }
+  html[data-lang="ar"] .t-item .yr{ font-family:'IBM Plex Sans Arabic'; }
+  .t-item h3{ font-size:19px; margin-top:4px; font-weight:600; }
+  .t-item p{ font-size:14.5px; color:var(--ink); opacity:.75; margin-top:6px; line-height:1.6; max-width:560px; }
+
+  .filter-bar{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .filter-btn{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.04em; padding:9px 16px; border-radius:999px; border:1.5px solid var(--ink); background:transparent; color:var(--ink); cursor:pointer; transition:background .15s ease, color .15s ease; }
+  html[data-lang="ar"] .filter-btn{ font-family:'IBM Plex Sans Arabic'; }
+  .filter-btn.active{ background:var(--ink); color:var(--paper); }
+
+  .work-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:18px; }
+  @media (max-width:640px){ .work-grid{ grid-template-columns:1fr; } }
+  .work-card{ border:1px solid var(--line); background:var(--card-bg); overflow:hidden; cursor:pointer; }
+  .work-thumb{ height:190px; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; background:var(--ink); }
+  .work-thumb img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(15%) contrast(1.04); transition:transform .35s ease, filter .35s ease; }
+  .work-card:hover .work-thumb img{ transform:scale(1.05); filter:grayscale(0%) contrast(1.04); }
+  .work-thumb .crop{ position:absolute; width:14px; height:14px; z-index:2; }
+  .work-thumb .crop.tl{top:8px; left:8px; border-top:2px solid rgba(255,255,255,0.75); border-left:2px solid rgba(255,255,255,0.75);}
+  .work-thumb .crop.br{bottom:8px; right:8px; border-bottom:2px solid rgba(255,255,255,0.75); border-right:2px solid rgba(255,255,255,0.75);}
+  .work-info{ padding:16px 18px; border-top:1px solid var(--line); }
+  .work-info .cat{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--magenta); }
+  html[data-lang="ar"] .work-info .cat{ font-family:'IBM Plex Sans Arabic'; letter-spacing:0; }
+  .work-info h4{ font-size:15.5px; margin-top:4px; font-weight:600; }
+
+  .note-box{ margin-top:22px; border:1px dashed var(--line); padding:16px 18px; font-size:13px; color:#6b6858; font-family:'IBM Plex Mono', monospace; line-height:1.6; }
+  html[data-lang="ar"] .note-box{ font-family:'IBM Plex Sans Arabic'; }
+
+  .service-banner{ background:var(--yellow); color:var(--ink); border:1.5px solid var(--ink); padding:16px 20px; font-weight:700; font-size:15.5px; line-height:1.6; margin-bottom:22px; }
+
+  .lightbox{ position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:100; display:none; align-items:center; justify-content:center; padding:24px; }
+  .lightbox.open{ display:flex; }
+  .lightbox img{ max-width:100%; max-height:78vh; object-fit:contain; }
+  .lightbox-caption{ color:#fff; font-family:'IBM Plex Mono', monospace; font-size:13px; margin-top:14px; text-align:center; }
+  .lightbox-close{ position:absolute; top:20px; right:20px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1.5px solid #fff; color:#fff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .lightbox-nav{ position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.1); border:1.5px solid #fff; color:#fff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .lightbox-prev{ left:16px; } .lightbox-next{ right:16px; }
+
+  .contact-box{ border:1.5px solid var(--ink); padding:38px 30px; display:flex; flex-direction:column; gap:18px; }
+  .contact-box h2{ font-size:clamp(26px,5vw,38px); }
+  .contact-links{ display:flex; flex-wrap:wrap; gap:14px; }
+  .contact-phones{ display:flex; flex-wrap:wrap; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--ink); opacity:.8; }
+  html[data-lang="ar"] .contact-phones{ font-family:'IBM Plex Sans Arabic'; }
+
+  footer{ text-align:center; padding:28px 20px 40px; font-family:'IBM Plex Mono', monospace; font-size:11px; color:#6b6858; letter-spacing:0.04em; }
+  html[data-lang="ar"] footer{ font-family:'IBM Plex Sans Arabic'; letter-spacing:0; }
+
+  ::selection{ background:var(--yellow); color:var(--ink); }
+  a{ color:inherit; }
+  button:focus-visible, a:focus-visible{ outline:2px solid var(--magenta); outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+
+  <div class="reg-mark reg-tl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1"/><line x1="12" y1="0" x2="12" y2="24" stroke="currentColor" stroke-width="1"/><line x1="0" y1="12" x2="24" y2="12" stroke="currentColor" stroke-width="1"/></svg></div>
+  <div class="reg-mark reg-tr"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1"/><line x1="12" y1="0" x2="12" y2="24" stroke="currentColor" stroke-width="1"/><line x1="0" y1="12" x2="24" y2="12" stroke="currentColor" stroke-width="1"/></svg></div>
+  <div class="reg-mark reg-bl"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1"/><line x1="12" y1="0" x2="12" y2="24" stroke="currentColor" stroke-width="1"/><line x1="0" y1="12" x2="24" y2="12" stroke="currentColor" stroke-width="1"/></svg></div>
+  <div class="reg-mark reg-br"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1"/><line x1="12" y1="0" x2="12" y2="24" stroke="currentColor" stroke-width="1"/><line x1="0" y1="12" x2="24" y2="12" stroke="currentColor" stroke-width="1"/></svg></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand-mark"><span class="brand-dot"></span><span>O.T — 2026</span></div>
+      <div class="header-controls">
+        <div class="social-links">
+          <a href="https://instagram.com/omartaberkane" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="https://tiktok.com/@omar.t341" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.4 2.2 2 3.9 4.5 4.1v3.1c-1.6.1-3-.4-4.5-1.4v6.9c0 3.6-2.9 6.3-6.4 6.3S3.7 19.3 3.7 15.7c0-3.5 2.8-6.3 6.2-6.3.4 0 .8 0 1.2.1v3.2a3.1 3.1 0 0 0-1.2-.2 3.1 3.1 0 1 0 3.1 3.1V3h3.5z"/></svg>
+          </a>
+        </div>
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+          <svg id="theme-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg>
+        </button>
+        <div class="lang-toggle">
+          <button id="btn-fr" class="active" onclick="setLang('fr')">FR</button>
+          <button id="btn-ar" onclick="setLang('ar')">ع</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="colorbar"><span class="cb-paper"></span><span class="cb-c"></span><span class="cb-m"></span><span class="cb-y"></span><span class="cb-k"></span></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow" data-i18n="eyebrow-hero"></div>
+    <h1 class="display" data-i18n-html="hero-title"></h1>
+    <p class="role" data-i18n="hero-role"></p>
+    <p class="tag mono" data-i18n="hero-tag"></p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-solid" data-i18n="btn-contact"></a>
+      <a href="#work" class="btn btn-outline" data-i18n="btn-work"></a>
+      <a href="CV_Omar_Taberkane.pdf" target="_blank" class="btn btn-outline" data-i18n="btn-cv"></a>
+    </div>
+    <div class="swatch-strip">
+      <div class="swatch"><div class="n" data-count="2023">0</div><div class="l" data-i18n="sw1"></div></div>
+      <div class="swatch"><div class="n">UV</div><div class="l" data-i18n="sw2"></div></div>
+      <div class="swatch"><div class="n" data-count="2">0</div><div class="l" data-i18n="sw3"></div></div>
+      <div class="swatch"><div class="n">DZ</div><div class="l" data-i18n="sw4"></div></div>
+    </div>
+  </section>
+
+  <div class="colorbar"><span class="cb-k"></span><span class="cb-y"></span><span class="cb-m"></span><span class="cb-c"></span><span class="cb-paper"></span></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="eyebrow" data-i18n="eyebrow-about"></div>
+    <h2 class="section-title display" data-i18n="about-title"></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-i18n="about-p1"></p>
+        <p data-i18n="about-p2"></p>
+      </div>
+      <div class="info-card">
+        <div class="row"><span class="k" data-i18n="info-loc"></span><span class="v">El Kobba, Alger</span></div>
+        <div class="row"><span class="k" data-i18n="info-role"></span><span class="v" data-i18n="info-role-v"></span></div>
+        <div class="row"><span class="k" data-i18n="info-since"></span><span class="v">2023</span></div>
+        <div class="row"><span class="k" data-i18n="info-lang"></span><span class="v" data-i18n="info-lang-v"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="eyebrow" data-i18n="eyebrow-skills"></div>
+    <h2 class="section-title display" data-i18n="skills-title"></h2>
+    <div class="chip-grid" id="chip-grid"></div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="eyebrow" data-i18n="eyebrow-exp"></div>
+    <h2 class="section-title display" data-i18n="exp-title"></h2>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="eyebrow" data-i18n="eyebrow-work"></div>
+    <h2 class="section-title display" data-i18n="work-title"></h2>
+    <p class="service-banner" data-i18n="service-banner"></p>
+    <div class="filter-bar" id="filter-bar"></div>
+    <div class="work-grid" id="work-grid"></div>
+    <div class="note-box" data-i18n="work-note"></div>
+  </section>
+
+  <div class="colorbar"><span class="cb-paper"></span><span class="cb-c"></span><span class="cb-m"></span><span class="cb-y"></span><span class="cb-k"></span></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-box">
+      <div class="eyebrow" data-i18n="eyebrow-contact"></div>
+      <h2 class="display" data-i18n="contact-title"></h2>
+      <p data-i18n="contact-p"></p>
+      <div class="contact-phones">
+        <span>📞 0540 56 95 11</span>
+        <span>📞 0550 30 55 48</span>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:omartaberkane57@gmail.com" class="btn btn-solid" data-i18n="btn-email"></a>
+        <a href="https://wa.me/213540569511" target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp — 0540 56 95 11</a>
+        <a href="https://wa.me/213550305548" target="_blank" rel="noopener" class="btn btn-whatsapp">WhatsApp — 0550 30 55 48</a>
+        <a href="https://instagram.com/omartaberkane" target="_blank" rel="noopener" class="btn btn-outline">Instagram</a>
+        <a href="https://tiktok.com/@omar.t341" target="_blank" rel="noopener" class="btn btn-outline">TikTok</a>
+      </div>
+    </div>
+  </section>
+
+  <footer data-i18n="footer"></footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+    <div class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">‹</div>
+    <div class="lightbox-nav lightbox-next" onclick="navLightbox(1)">›</div>
+    <div>
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+<script>
+const dict = {
+  fr: {
+    "eyebrow-hero":"Portfolio — Design & Production",
+    "hero-title":"OMAR<br>TABERKANE",
+    "hero-role":"Infographiste & opérateur de production — spécialisé en finition et vernissage UV.",
+    "hero-tag":"El Kobba, Alger · Algérie",
+    "btn-contact":"Me contacter",
+    "btn-work":"Voir les travaux",
+    "btn-cv":"Télécharger le CV",
+    "sw1":"En poste depuis","sw2":"Vernisseuse allemande","sw3":"Certifications","sw4":"Basé en Algérie",
+    "eyebrow-about":"Profil",
+    "about-title":"À propos",
+    "about-p1":"Infographiste et opérateur de production basé à Alger, avec plus de 15 ans d'expérience cumulée entre design graphique et production industrielle. Depuis 2023, je travaille à l'Imprimerie El Hilal où j'opère une vernisseuse UV allemande, en assurant la qualité de finition sur chaque tirage.",
+    "about-p2":"Mon parcours passe par la signalétique routière (11 ans), le design graphique chez Corso Ceram (avril 2022 – avril 2023), et la production chez SPA Matahin Labelle (août – décembre 2023). Formé en Arts et Industries Graphiques et en Chaudronnerie Générale, j'allie sensibilité graphique et maîtrise technique de la chaîne de production, du fichier à l'objet fini.",
+    "info-loc":"Localisation","info-role":"Poste","info-role-v":"Agent de production / infographiste","info-since":"En poste depuis","info-lang":"Langues","info-lang-v":"Arabe · Français",
+    "eyebrow-skills":"Savoir-faire",
+    "skills-title":"Compétences",
+    "eyebrow-exp":"Parcours",
+    "exp-title":"Expérience & certifications",
+    "eyebrow-work":"Sélection",
+    "work-title":"Travaux",
+    "work-note":"— Captures issues du terrain, aux différents postes occupés. D'autres visuels peuvent être ajoutés au fur et à mesure.",
+    "service-banner":"Je conçois et réalise également des panneaux de sécurité, de danger et d'orientation pour entreprises publiques et privées, espaces et jardins, ainsi que l'habillage publicitaire de véhicules — bus, tramway, métro et voitures — pour le secteur public et privé.",
+    "eyebrow-contact":"Contact",
+    "contact-title":"Discutons de votre projet",
+    "contact-p":"Disponible pour des collaborations en design graphique et production d'impression.",
+    "btn-email":"Envoyer un e-mail",
+    "footer":"OMAR TABERKANE — PORTFOLIO 2026",
+    "filter-all":"Tout"
+  },
+  ar: {
+    "eyebrow-hero":"بورتفوليو — تصميم وإنتاج",
+    "hero-title":"عمر<br>تابركان",
+    "hero-role":"مصمم غرافيك ومشغل إنتاج — متخصص في التشطيب وتقنية الفرنسة (الورنيش) بالأشعة فوق البنفسجية.",
+    "hero-tag":"القبة، الجزائر العاصمة",
+    "btn-contact":"تواصل معي",
+    "btn-work":"شاهد الأعمال",
+    "btn-cv":"تحميل السيرة الذاتية",
+    "sw1":"يعمل منذ","sw2":"مكينة فرنسة ألمانية","sw3":"شهادات مهنية","sw4":"مقيم بالجزائر",
+    "eyebrow-about":"الملف الشخصي",
+    "about-title":"نبذة عني",
+    "about-p1":"مصمم غرافيك ومشغل إنتاج مقيم بالجزائر العاصمة، بخبرة تفوق 15 سنة بين التصميم الغرافيكي والإنتاج الصناعي. أعمل منذ 2023 في مطبعة الهلال حيث أشغّل مكينة فرنسة (ورنيش) ألمانية بالأشعة فوق البنفسجية، مع الحرص على جودة التشطيب في كل عملية طباعة.",
+    "about-p2":"مساري المهني يمر عبر شركة اللافتات وإشارات الطرق (11 سنة)، التصميم الغرافيكي في شركة كورسو سيرام للسيراميك (أفريل 2022 – أفريل 2023)، والإنتاج في شركة SPA Matahin Labelle (أوت – ديسمبر 2023). متكوّن في الفنون والصناعات الغرافيكية وفي الحدادة العامة، مما يجمع بين الحس التصميمي والإتقان التقني لسلسلة الإنتاج، من الملف الرقمي إلى المنتج النهائي.",
+    "info-loc":"الموقع","info-role":"المنصب","info-role-v":"عون إنتاج / مصمم غرافيك","info-since":"يعمل منذ","info-lang":"اللغات","info-lang-v":"العربية · الفرنسية",
+    "eyebrow-skills":"الخبرات",
+    "skills-title":"المهارات",
+    "eyebrow-exp":"المسار",
+    "exp-title":"الخبرة والشهادات",
+    "eyebrow-work":"مختارات",
+    "work-title":"الأعمال",
+    "work-note":"— لقطات ميدانية من مختلف المناصب التي شغلها. يمكن إضافة صور أخرى لاحقا.",
+    "service-banner":"أقوم أيضا بتصميم وإنجاز لوحات السلامة والأمن والإرشاد للشركات العامة والخاصة، والفضاءات، والحدائق، وكذلك تغليف المركبات الإشهاري — عربات المترو والترامواي والحافلات والسيارات — للقطاعين العام والخاص.",
+    "eyebrow-contact":"تواصل",
+    "contact-title":"لنتحدث عن مشروعك",
+    "contact-p":"متاح للتعاون في مجال التصميم الغرافيكي وإنتاج الطباعة.",
+    "btn-email":"أرسل بريدا إلكترونيا",
+    "footer":"عمر تابركان — بورتفوليو 2026",
+    "filter-all":"الكل"
+  }
+};
+
+const skills = {
+  fr:["Vernissage UV","Finition d'impression","Conception graphique","Signalétique routière","Signalétique de sécurité","Habillage de véhicules (bus, tram, métro)","Design céramique","Chaudronnerie générale","Conduite de ligne de production","Contrôle qualité & conditionnement"],
+  ar:["فرنسة UV","تشطيب الطباعة","التصميم الغرافيكي","اللافتات والإشارات الطرقية","لوحات السلامة والإرشاد","تغليف المركبات (حافلات، ترامواي، مترو)","تصميم السيراميك","الحدادة العامة","تشغيل خط الإنتاج","مراقبة الجودة والتعليب"]
+};
+
+const timeline = {
+  fr:[
+    {yr:"2023 — Aujourd'hui", t:"Agent de production, Imprimerie El Hilal", d:"Opérateur d'une vernisseuse UV allemande. Responsable de la finition et du conditionnement des tirages, société El Hilal pour le Commerce et l'Industrie."},
+    {yr:"Août – Déc. 2023", t:"Opérateur de production, SPA Matahin Labelle", d:"Conduite d'une ligne de production, Ouled-Moussa, Boumerdès."},
+    {yr:"Avril 2022 – Avril 2023", t:"Infographiste, Corso Ceram", d:"Conception de motifs et décors graphiques pour une entreprise de fabrication de carreaux céramiques, Boumerdès."},
+    {yr:"11 ans", t:"Designer graphique — Signalétique routière & environnementale", d:"Conception graphique pour une entreprise de panneaux de signalisation routière et environnementale."},
+    {yr:"2022", t:"Certification en Chaudronnerie Générale", d:"Ministère de la Formation et de l'Enseignement Professionnels, mention Bien."},
+    {yr:"2021", t:"Certification en Arts et Industries Graphiques", d:"ONDEFOC — formation en conception et industries graphiques."}
+  ],
+  ar:[
+    {yr:"2023 — الآن", t:"عون إنتاج، مطبعة الهلال", d:"تشغيل مكينة فرنسة UV ألمانية، مع مسؤولية التشطيب وتكييف المنتجات المطبوعة، شركة الهلال للتجارة والصناعة."},
+    {yr:"أوت – ديسمبر 2023", t:"مشغل إنتاج، SPA Matahin Labelle", d:"تشغيل خط إنتاج، أولاد موسى، بومرداس."},
+    {yr:"أفريل 2022 – أفريل 2023", t:"مصمم إنفوغرافيك، كورسو سيرام", d:"تصميم زخارف ورسومات غرافيكية لشركة تصنيع بلاط السيراميك، بومرداس."},
+    {yr:"11 سنة", t:"مصمم غرافيك — اللافتات وإشارات الطرق والبيئة", d:"تصميم غرافيكي لشركة متخصصة في لوحات إشارات المرور وإشارات البيئة."},
+    {yr:"2022", t:"شهادة في الحدادة العامة", d:"وزارة التكوين والتعليم المهنيين، بتقدير جيد."},
+    {yr:"2021", t:"شهادة في الفنون والصناعات الغرافيكية", d:"الديوان الوطني لتطوير وترقية التكوين المتواصل (ONDEFOC)."}
+  ]
+};
+
+/* ============================================================
+   جدول الصور الكامل — كل صورة سطر واحد. لإضافة صورة جديدة مستقبلا،
+   زيد سطر جديد بنفس الشكل فالمجموعة المناسبة (fr و ar معا).
+   ============================================================ */
+const work = {
+  fr:[
+    // --- El Hilal ---
+    {img:"hilal-2.jpg", group:"hilal", cat:"El Hilal — depuis 2023", t:"Poste de contrôle de la vernisseuse UV"},
+    {img:"hilal-1.jpg", group:"hilal", cat:"El Hilal — depuis 2023", t:"Ligne de vernissage en fonctionnement"},
+    {img:"hilal-3.jpg", group:"hilal", cat:"El Hilal — depuis 2023", t:"Conditionnement des tirages"},
+    {img:"hilal-6.jpg", group:"hilal", cat:"El Hilal — depuis 2023", t:"Feuille imprimée sortant de la vernisseuse UV"},
+    {img:"hilal-7.jpg", group:"hilal", cat:"El Hilal — depuis 2023", t:"Vernisseuse UV en action sur le produit fini"},
+    {img:"hilal-8.jpg", group:"hilal", cat:"El Hilal — depuis 2023", t:"Cahier vernis UV — sortie de production"},
+    {img:"hilal-9.jpg", group:"hilal", cat:"El Hilal — depuis 2023", t:"Cahier PRO PAPER — finition brillante"},
+    {img:"hilal-10.jpg", group:"hilal", cat:"El Hilal — depuis 2023", t:"Panneau de contrôle — machine de reliure/conditionnement HAROUF"},
+    // --- Signalétique ---
+    {img:"signal-6.jpg", group:"signal", cat:"Signalétique — 11 ans", t:"Panneau routier directionnel grand format"},
+    {img:"signal-1.jpg", group:"signal", cat:"Signalétique — 11 ans", t:"Panneaux imprimés en cours de production"},
+    {img:"signal-2.jpg", group:"signal", cat:"Signalétique — 11 ans", t:"Contrôle qualité d'un panneau fini"},
+    {img:"signal-3.jpg", group:"signal", cat:"Signalétique — 11 ans", t:"Impression grand format"},
+    {img:"signal-4.jpg", group:"signal", cat:"Signalétique — 11 ans", t:"Découpe grand format — panneau en cours de fabrication"},
+    {img:"signal-5.jpg", group:"signal", cat:"Signalétique — 11 ans", t:"Machine de découpe et d'écriture (Aristo Mat)"},
+    // --- Sécurité industrielle ---
+    {img:"securite-1.jpg", group:"securite", cat:"Signalétique de sécurité (exemple)", t:"Panneaux d'avertissement et de consignes"},
+    {img:"securite-2.jpg", group:"securite", cat:"Signalétique de sécurité (exemple)", t:"Panneau de consignes de sécurité en atelier"},
+    {img:"securite-3.jpg", group:"securite", cat:"Signalétique de sécurité (exemple)", t:"Panneau de propreté et rangement"},
+    // --- Corso Ceram ---
+    {img:"ceram-1.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Motif décoratif pour carreaux"},
+    {img:"ceram-2.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Impression de motifs céramique"},
+    {img:"ceram-3.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Motif floral — carreaux salon de thé"},
+    {img:"ceram-4.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Motif salle de bain — fleurs & cosmétique"},
+    {img:"ceram-5.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Carreaux texture beige & motifs géométriques"},
+    {img:"ceram-6.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Effet marbre & mosaïque hexagonale"},
+    {img:"ceram-7.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Motif patchwork décoratif"},
+    {img:"ceram-8.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Motif cuisine — sel & sucre"},
+    {img:"ceram-9.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Effet pierre naturelle"},
+    {img:"ceram-10.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Motif mosaïque étoilée"},
+    {img:"ceram-11.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Motif cuisine — fruits & vaisselle"},
+    {img:"ceram-12.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Motif géométrique patchwork"},
+    {img:"ceram-21.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Serviettes, savon & bougies — salle de bain"},
+    {img:"ceram-22.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Motif cruche et carreaux décoratifs"},
+    {img:"ceram-23.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Flacon BLV & bougies spa"},
+    {img:"ceram-24.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Parfums Daisy, miel & noix"},
+    {img:"ceram-25.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Poterie moderne grise"},
+    {img:"ceram-26.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Accessoires salle de bain noir & or"},
+    {img:"ceram-27.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Tasse de thé & motif plume"},
+    {img:"ceram-28.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Motif losanges bruns & cruche"},
+    {img:"ceram-29.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Effet marbre beige & orange"},
+    {img:"ceram-30.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Carreaux blancs à bande décorative"},
+    {img:"ceram-32.jpg", group:"ceram", cat:"Corso Ceram — 2022–2023", t:"Marbre avec motif floral bleu"},
+    // --- Identité OPGI ---
+    {img:"opgi-3.jpg", group:"opgi", cat:"Identité visuelle — OPGI Boumerdès", t:"Logo & charte graphique"},
+    {img:"opgi-1.jpg", group:"opgi", cat:"Identité visuelle — OPGI Boumerdès", t:"Profil couleurs (CMYK/RGB/Pantone)"},
+    {img:"opgi-2.jpg", group:"opgi", cat:"Identité visuelle — OPGI Boumerdès", t:"Guide d'utilisation du logo"}
+  ],
+  ar:[
+    // --- مطبعة الهلال ---
+    {img:"hilal-2.jpg", group:"hilal", cat:"مطبعة الهلال — منذ 2023", t:"لوحة التحكم في مكينة الفرنسة UV"},
+    {img:"hilal-1.jpg", group:"hilal", cat:"مطبعة الهلال — منذ 2023", t:"خط الفرنسة أثناء التشغيل"},
+    {img:"hilal-3.jpg", group:"hilal", cat:"مطبعة الهلال — منذ 2023", t:"تكييف وتعليب المطبوعات"},
+    {img:"hilal-6.jpg", group:"hilal", cat:"مطبعة الهلال — منذ 2023", t:"ورقة مطبوعة خارجة من مكينة الفرنسة UV"},
+    {img:"hilal-7.jpg", group:"hilal", cat:"مطبعة الهلال — منذ 2023", t:"مكينة الفرنسة UV أثناء العمل على المنتج"},
+    {img:"hilal-8.jpg", group:"hilal", cat:"مطبعة الهلال — منذ 2023", t:"دفتر مفرنس UV — خارج من الإنتاج"},
+    {img:"hilal-9.jpg", group:"hilal", cat:"مطبعة الهلال — منذ 2023", t:"دفتر PRO PAPER — تشطيب لامع"},
+    {img:"hilal-10.jpg", group:"hilal", cat:"مطبعة الهلال — منذ 2023", t:"لوحة تحكم — آلة التجليد والتغليف HAROUF"},
+    // --- اللافتات ---
+    {img:"signal-6.jpg", group:"signal", cat:"اللافتات — 11 سنة", t:"لوحة إشارات طرق كبيرة الحجم"},
+    {img:"signal-1.jpg", group:"signal", cat:"اللافتات — 11 سنة", t:"لوحات مطبوعة أثناء الإنتاج"},
+    {img:"signal-2.jpg", group:"signal", cat:"اللافتات — 11 سنة", t:"مراقبة جودة لوحة جاهزة"},
+    {img:"signal-3.jpg", group:"signal", cat:"اللافتات — 11 سنة", t:"طباعة بالحجم الكبير"},
+    {img:"signal-4.jpg", group:"signal", cat:"اللافتات — 11 سنة", t:"قطع بالحجم الكبير — لوحة أثناء التصنيع"},
+    {img:"signal-5.jpg", group:"signal", cat:"اللافتات — 11 سنة", t:"آلة القطع والكتابة (Aristo Mat)"},
+    // --- لوحات السلامة ---
+    {img:"securite-1.jpg", group:"securite", cat:"لوحات السلامة (نموذج)", t:"لوحات تحذيرية وإرشادية"},
+    {img:"securite-2.jpg", group:"securite", cat:"لوحات السلامة (نموذج)", t:"لوحة تعليمات السلامة داخل الورشة"},
+    {img:"securite-3.jpg", group:"securite", cat:"لوحات السلامة (نموذج)", t:"لوحة النظافة والترتيب"},
+    // --- كورسو سيرام ---
+    {img:"ceram-1.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زخرفة مخصصة للسيراميك"},
+    {img:"ceram-2.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"طباعة زخارف السيراميك"},
+    {img:"ceram-3.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زخرفة زهرية — بلاط صالون الشاي"},
+    {img:"ceram-4.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زخرفة حمام — أزهار ومستحضرات"},
+    {img:"ceram-5.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"بلاط بيج مع زخارف هندسية"},
+    {img:"ceram-6.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"تأثير رخامي وموزاييك سداسي"},
+    {img:"ceram-7.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زخرفة باتشورك ديكورية"},
+    {img:"ceram-8.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زخرفة مطبخ — ملح وسكر"},
+    {img:"ceram-9.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"تأثير حجر طبيعي"},
+    {img:"ceram-10.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زخرفة موزاييك نجمية"},
+    {img:"ceram-11.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زخرفة مطبخ — فواكه وأواني"},
+    {img:"ceram-12.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زخرفة هندسية باتشورك"},
+    {img:"ceram-21.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"مناشف وصابون وشموع — حمام"},
+    {img:"ceram-22.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زخرفة إبريق وبلاط ديكوري"},
+    {img:"ceram-23.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زجاجة BLV وشموع سبا"},
+    {img:"ceram-24.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"عطور Daisy وعسل وجوز"},
+    {img:"ceram-25.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"أواني فخارية عصرية رمادية"},
+    {img:"ceram-26.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"إكسسوارات حمام أسود وذهبي"},
+    {img:"ceram-27.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"فنجان شاي وزخرفة ريشة"},
+    {img:"ceram-28.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"زخرفة معينات بنية وإبريق"},
+    {img:"ceram-29.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"تأثير رخام بيج وبرتقالي"},
+    {img:"ceram-30.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"بلاط أبيض بشريط زخرفي"},
+    {img:"ceram-32.jpg", group:"ceram", cat:"كورسو سيرام — 2022–2023", t:"رخام بزخرفة زهرية زرقاء"},
+    // --- هوية OPGI ---
+    {img:"opgi-3.jpg", group:"opgi", cat:"هوية بصرية — ديوان الترقية والتسيير العقاري بومرداس", t:"الشعار والهوية البصرية"},
+    {img:"opgi-1.jpg", group:"opgi", cat:"هوية بصرية — ديوان الترقية والتسيير العقاري بومرداس", t:"بروفايل الألوان (CMYK/RGB/Pantone)"},
+    {img:"opgi-2.jpg", group:"opgi", cat:"هوية بصرية — ديوان الترقية والتسيير العقاري بومرداس", t:"دليل استعمال الشعار"}
+  ]
+};
+
+const groupLabels = {
+  fr:{hilal:"El Hilal", signal:"Signalétique", securite:"Sécurité", ceram:"Corso Ceram", opgi:"Identité OPGI"},
+  ar:{hilal:"مطبعة الهلال", signal:"اللافتات", securite:"السلامة", ceram:"كورسو سيرام", opgi:"هوية OPGI"}
+};
+
+let currentLang = "fr";
+let currentFilter = "all";
+let lightboxItems = [];
+let lightboxIndex = 0;
+
+function render(lang){
+  currentLang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(dict[lang][key]!==undefined) el.textContent = dict[lang][key];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const key = el.getAttribute("data-i18n-html");
+    if(dict[lang][key]!==undefined) el.innerHTML = dict[lang][key];
+  });
+
+  const chipGrid = document.getElementById("chip-grid");
+  chipGrid.innerHTML = "";
+  skills[lang].forEach(s=>{
+    const d = document.createElement("div");
+    d.className = "chip";
+    d.textContent = s;
+    chipGrid.appendChild(d);
+  });
+
+  const tl = document.getElementById("timeline");
+  tl.innerHTML = "";
+  timeline[lang].forEach(item=>{
+    const d = document.createElement("div");
+    d.className = "t-item";
+    d.innerHTML = `<div class="yr">${item.yr}</div><h3>${item.t}</h3><p>${item.d}</p>`;
+    tl.appendChild(d);
+  });
+
+  renderFilterBar(lang);
+  renderWork(lang, currentFilter);
+}
+
+function renderFilterBar(lang){
+  const bar = document.getElementById("filter-bar");
+  bar.innerHTML = "";
+  const groups = ["all", ...Object.keys(groupLabels[lang])];
+  groups.forEach(g=>{
+    const b = document.createElement("button");
+    b.className = "filter-btn" + (g===currentFilter ? " active" : "");
+    b.textContent = g==="all" ? dict[lang]["filter-all"] : groupLabels[lang][g];
+    b.onclick = ()=>{ currentFilter = g; renderFilterBar(lang); renderWork(lang, g); };
+    bar.appendChild(b);
+  });
+}
+
+function renderWork(lang, filter){
+  const wg = document.getElementById("work-grid");
+  wg.innerHTML = "";
+  const items = work[lang].filter(w => filter==="all" || w.group===filter);
+  lightboxItems = items;
+  items.forEach((w, idx)=>{
+    const d = document.createElement("div");
+    d.className = "work-card";
+    d.onclick = ()=> openLightbox(idx);
+    d.innerHTML = `<div class="work-thumb"><img src="${w.img}" alt="${w.t}" loading="lazy"><span class="crop tl"></span><span class="crop br"></span></div>
+    <div class="work-info"><div class="cat">${w.cat}</div><h4>${w.t}</h4></div>`;
+    wg.appendChild(d);
+  });
+}
+
+function openLightbox(idx){
+  lightboxIndex = idx;
+  updateLightbox();
+  document.getElementById("lightbox").classList.add("open");
+}
+function closeLightbox(){ document.getElementById("lightbox").classList.remove("open"); }
+function navLightbox(dir){
+  lightboxIndex = (lightboxIndex + dir + lightboxItems.length) % lightboxItems.length;
+  updateLightbox();
+}
+function updateLightbox(){
+  const item = lightboxItems[lightboxIndex];
+  if(!item) return;
+  document.getElementById("lightbox-img").src = item.img;
+  document.getElementById("lightbox-img").alt = item.t;
+  document.getElementById("lightbox-caption").textContent = item.cat + " — " + item.t;
+}
+document.getElementById("lightbox").addEventListener("click", (e)=>{
+  if(e.target.id==="lightbox") closeLightbox();
+});
+
+function setLang(lang){
+  const html = document.getElementById("html-root");
+  html.setAttribute("lang", lang);
+  html.setAttribute("dir", lang==="ar" ? "rtl" : "ltr");
+  html.setAttribute("data-lang", lang);
+  document.getElementById("btn-fr").classList.toggle("active", lang==="fr");
+  document.getElementById("btn-ar").classList.toggle("active", lang==="ar");
+  currentFilter = "all";
+  render(lang);
+}
+
+function toggleTheme(){
+  const html = document.getElementById("html-root");
+  const isDark = html.getAttribute("data-theme")==="dark";
+  html.setAttribute("data-theme", isDark ? "light" : "dark");
+}
+
+function animateCounters(){
+  document.querySelectorAll("[data-count]").forEach(el=>{
+    const target = parseInt(el.getAttribute("data-count"), 10);
+    const duration = 900;
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const value = Math.floor(progress * target);
+      el.textContent = value;
+      if(progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+setLang("fr");
+animateCounters();
+</script>
+</body>
+</html>
